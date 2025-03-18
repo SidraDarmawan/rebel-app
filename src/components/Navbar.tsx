@@ -1,11 +1,11 @@
 "use client";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation"; // ✅ Perbaikan dari "next/router"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logoutAction } from "@/redux/slices/userSlice";
 import { Button } from "./ui/button";
 
-export const Navbar = () => {
+const Navbar = () => {
   const dispatch = useAppDispatch();
   const { id, role, fullName } = useAppSelector((state) => state.user);
   const router = useRouter();
@@ -19,14 +19,16 @@ export const Navbar = () => {
   return (
     <>
       <nav className="container flex justify-between px-4 py-4 xl:px-0">
+        {/* Logo */}
         <div
-          className="cursor-pointer place-content-center text-[24px] font-bold"
+          className="cursor-pointer text-[24px] font-bold"
           onClick={() => router.push("/")}
         >
           Rebel<span className="text-main_yellow">Fun</span>
         </div>
 
-        {Boolean(id) ? (
+        {/* Jika user sudah login */}
+        {id ? (
           <div className="flex items-center gap-8">
             {role === "organizer" ? (
               <div className="flex items-center gap-8">
@@ -64,6 +66,7 @@ export const Navbar = () => {
             </Button>
           </div>
         ) : (
+          // Jika user belum login
           <div className="flex items-center gap-8">
             <Button
               className="hidden sm:block"
@@ -86,3 +89,5 @@ export const Navbar = () => {
     </>
   );
 };
+
+export default Navbar; 
