@@ -5,6 +5,7 @@ import StoreProvider from "@/providers/StoreProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
 import { Toaster } from "sonner";
 import Navbar from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 const inter = DM_Sans({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           <AuthProvider>
             <Navbar /> {/* Sekarang Navbar hanya dirender di client */}
             {children}
+            <Footer />
           </AuthProvider>
         </StoreProvider>
         <Toaster />
