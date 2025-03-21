@@ -1,25 +1,25 @@
 /* eslint-disable react/no-unescaped-entities */
-'use client';
+"use client";
 
-import Autocomplete from '@/components/Autocomplete';
-import CardEvent from '@/components/CardEvent';
-import { LocationPicker } from '@/components/LocationPicker';
-import Pagination from '@/components/Pagination';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { appConfig } from '@/utils/config';
-import { Filter } from 'lucide-react';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import noeventfound from '../../public/noevent.png';
-import { CategoryPicker } from '@/components/CategoryPicker';
-import useGetEventsByFilter from '@/hooks/api/event/useGetEventsByFilter';
-import CardEventSkeleton from '@/components/CardEventSkeleton';
+import Autocomplete from "@/components/Autocomplete";
+import CardEvent from "@/components/CardEvent";
+import { LocationPicker } from "@/components/LocationPicker";
+import Pagination from "@/components/Pagination";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { appConfig } from "@/utils/config";
+import { Filter } from "lucide-react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import noeventfound from "../../public/noevent.png";
+import { CategoryPicker } from "@/components/CategoryPicker";
+import useGetEventsByFilter from "@/hooks/api/event/useGetEventsByFilter";
+import CardEventSkeleton from "@/components/CardEventSkeleton";
 
 export default function Home() {
   const [page, setPage] = useState<number>(1);
-  const [location, setLocation] = useState<string>('all');
-  const [category, setCategory] = useState<string>('all');
+  const [location, setLocation] = useState<string>("all");
+  const [category, setCategory] = useState<string>("all");
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const {
@@ -61,7 +61,7 @@ export default function Home() {
               <h1 className="my-auto text-[32px] font-medium text-white md:text-[48px]">
                 Harmonize Your Experience:
                 <br />
-                Discover, Book, &{' '}
+                Discover, Book, &{" "}
                 <span className="text-main_yellow">Groove!</span>
               </h1>
             </div>
@@ -88,7 +88,7 @@ export default function Home() {
           <div className="container flex place-items-center justify-between px-0 md:pt-10">
             <div className="relative w-fit">
               <h1 className="text-[24px] font-semibold">
-                Discover all{' '}
+                Discover all{" "}
                 <span className="relative">
                   <svg className="absolute right-0 top-0 -z-10 h-full w-full -rotate-6">
                     <rect width="10em" height="10em" fill="#FFD739" />
@@ -106,7 +106,7 @@ export default function Home() {
             </Button>
           </div>
           {isLoading ? (
-            <div className='flex flex-col xl:flex-row w-full gap-4 pt-6'>
+            <div className="flex flex-col xl:flex-row w-full gap-4 pt-6">
               <CardEventSkeleton />
               <CardEventSkeleton />
               <CardEventSkeleton />
