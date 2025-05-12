@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { axiosInstance } from "@/lib/axios";
 import { loginAction } from "@/redux/slices/userSlice";
